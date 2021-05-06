@@ -31,7 +31,7 @@ function is_selectable(p) {
   p = Number(p);
   if (0 <= p && p <= 5 && !player) {return Boolean(bord[p])}
   else if (7 <= p && p <= 12 && player) {return Boolean(bord[p])}
-  else {return false};
+  else {return false}
 };
 /*
 'p' must be a Number.
@@ -44,14 +44,14 @@ function bord_updater(p) {
     var stone_num = bord[p];
     bord[p] = 0;
     p++;
-    var o = stone_num + p
+    var o = stone_num + p;
     while (stone_num >= 0) {
       for (let i = p; i < o && i < 14; i++) {
         bord[i]++
       };
       p = 0;
       stone_num -= (14 - p);
-      o = stone_num;
+      o = stone_num
     };
     player = Number(!player)
   } else {
