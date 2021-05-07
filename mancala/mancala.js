@@ -61,6 +61,29 @@ not return or throw error.
     };
     player = Number(!player)
   } else {
-    console.log('Error')
+    throw 'Error'
   }
+}
+
+function html_updater() {
+/*
+argument is nothing.
+not return.
+*/
+  for (let i = 0; i < bord.length; i++) {
+    document.getElementById(i).innerHTML = bord[i]
+  }
+  if (!player) {}
+  else {}
+}
+
+function game_controller(p) {
+/*
+'p' must be a Number.
+not return.
+*/
+  try {
+    bord_updater(p);
+    html_updater();
+  } catch {}
 }
