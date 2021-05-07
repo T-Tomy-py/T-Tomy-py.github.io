@@ -1,6 +1,8 @@
 /*
 MIT License
+
 Copyright (c) 2021 T-Tomy-py
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -28,17 +30,21 @@ var player = 0;
 //0 or 1
 
 function is_selectable(p) {
+/*
+'p' must be a Number.
+return Boolean (euqale True or False).
+*/
   p = Number(p);
   if (0 <= p && p <= 5 && !player) {return Boolean(bord[p])}
   else if (7 <= p && p <= 12 && player) {return Boolean(bord[p])}
   else {return false}
 };
-/*
-'p' must be a Number.
-return Boolean (euqale True or False).
-*/
 
 function bord_updater(p) {
+/*
+'p' must be a Number.
+not return or throw error.
+*/
   p = Number(p);
   if (is_selectable(p)) {
     var stone_num = bord[p];
@@ -58,7 +64,3 @@ function bord_updater(p) {
     console.log('Error')
   }
 }
-/*
-'p' must be a Number.
-not return or throw error.
-*/
