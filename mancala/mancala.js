@@ -77,7 +77,7 @@ function html_updater() {
 argument is nothing.
 not return.
 */
-  for (let i = 0; i < bord.length; i++) {
+  for (let i = 0; i < board.length; i++) {
     document.getElementById(i).innerHTML = board[i]
   }
   if (!player) {}
