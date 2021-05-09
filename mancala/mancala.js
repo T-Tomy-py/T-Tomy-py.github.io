@@ -94,9 +94,9 @@ not return
   }
 }
 
-function html_updater() {
+function html_updater(flag) {
 /*
-argument is nothing.
+'flag' must be a Number.
 not return.
 */
   for (let i = 0; i < board.length; i++) {
@@ -114,8 +114,7 @@ not return.
   try {
     var stone_num = board_updater(p);
     extend_board_updater(p, stone_num);
-
-
-    html_updater()
+    var end_flag = is_game_end()
+    html_updater(end_flag)
   } catch {}
 }
