@@ -58,18 +58,40 @@ return how many stone in bord or throw error.
       p = 0;
       o -= 14
     };
-    player = Number(!player);
     return stone_num
   } else {
     throw 'Error'
   }
 }
 
+const position_map = new Map([
+  [0, 12],
+  [1, 11],
+  [2, 10],
+  [3, 9],
+  [4, 8],
+  [5, 7]
+])
+
 function extend_board_updater(p, stone_num) {
 /*
 'p' and 'stone_num' must be Number.
 not return
 */
+  var i = p + 1 + stone_num % 14
+  if (position_map.has(i) && board[i] === 1) {
+    let j = position_map.get(i);
+    let l = board[i] + board[j];
+    board[i] = 0;
+    board[j] = 0;
+    if (!player) {board[6] = l}
+    else {board[13] = l};
+  }
+  if (!player && i === 6) {}
+  else if (player && i === 13) {}
+  else {
+    player = Number(!player);
+  }
 }
 
 function html_updater() {
@@ -92,6 +114,8 @@ not return.
   try {
     var stone_num = board_updater(p);
     extend_board_updater(p, stone_num);
+
+
     html_updater()
   } catch {}
 }
