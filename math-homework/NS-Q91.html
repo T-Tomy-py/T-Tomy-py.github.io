@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      5/10提出分、表4(STEP問題91)
+    </title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script>
+    <style type="text/css">
+html {
+  font-size: 90%;
+}
+.prettifydiv {
+  font-size: 13px;
+  margin: 30px 0;
+  max-width: 720px;
+}
+pre.prettyprint {
+  font-family: Monaco, Menlo, Consolas, 'Courier New', Courier, monospace, sans-serif;
+  background-color: #0E101E !important;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.prettyprint ol{
+  margin: 0 1rem;
+  white-space: pre-wrap;
+}
+.prettyprint ol.linenums > li {
+  list-style-type: decimal;
+  border-left:solid 1px #EBB15E;
+  padding-left:0.8em;
+  color: #999;
+}
+</style>
+    <pre class="prettyprint linenums lang-py">
+"""
+Copyright (c) 2021 T-Tomy-py
+Released under the MIT license
+https://github.com/T-Tomy-py/T-Tomy-py.github.io/blob/main/LICENSE
+"""
+def test():
+  il = list(range(5))
+  for i in il:
+    jl = il.copy()
+    jl.remove(i)
+    for j in jl:
+      kl = jl.copy()
+      kl.remove(j)
+      for k in kl:
+        yield i*100+j*10+k
+l = [n for n in test() if n > 100]
+print(f'(1):{len(l)}')
+print(
+    '(2):'
+    f'<奇数:{len([n for n in l if n % 2])}>,'
+    f'<偶数:{len([n for n in l if not n % 2])}>'
+    )
+print(
+    '(3):'
+    f'<9の倍数:{len([n for n in l if not n % 9])}>,'
+    f'<4の倍数:{len([n for n in l if not n % 4])}>'
+    )
+print(f'(4):{l.index(213)+1}')
+    </pre>
+  </body>
+</html>
