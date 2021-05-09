@@ -42,14 +42,9 @@ Copyright (c) 2021 T-Tomy-py
 Released under the MIT license
 https://github.com/T-Tomy-py/T-Tomy-py.github.io/blob/main/LICENSE
 """
-def test():
-  for i in range(5):
-    for j in (n for n in range(5) if n != i):
-      for k in (n for n in range(5) if n != i and n != j):
-        if (m := i*100+j*10+k) > 100:
-          yield m
+from itertools import permutations
+l = [m for i,j,k in permutations(range(5),3) if (m:=i*100+j*10+k) > 100]
 
-l = list(test())
 print(f'(1):{len(l)}')
 print(
     '(2):'
