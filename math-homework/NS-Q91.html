@@ -43,16 +43,13 @@ Released under the MIT license
 https://github.com/T-Tomy-py/T-Tomy-py.github.io/blob/main/LICENSE
 """
 def test():
-  il = list(range(5))
-  for i in il:
-    jl = il.copy()
-    jl.remove(i)
-    for j in jl:
-      kl = jl.copy()
-      kl.remove(j)
-      for k in kl:
-        yield i*100+j*10+k
-l = [n for n in test() if n > 100]
+  for i in range(5):
+    for j in (n for n in range(5) if n != i):
+      for k in (n for n in range(5) if n != i and n != j):
+        if (m := i*100+j*10+k) > 100:
+          yield m
+
+l = list(test())
 print(f'(1):{len(l)}')
 print(
     '(2):'
