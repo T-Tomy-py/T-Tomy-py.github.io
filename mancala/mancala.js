@@ -78,6 +78,7 @@ function extend_board_updater(p, stone_num) {
 'p' and 'stone_num' must be Number.
 not return
 */
+  /* pattern 1 */
   var i = p + 1 + stone_num % 14
   if (position_map.has(i) && board[i] === 1) {
     let j = position_map.get(i);
@@ -87,11 +88,35 @@ not return
     if (!player) {board[6] = l}
     else {board[13] = l};
   }
+  /* pattern 2 */
   if (!player && i === 6) {}
   else if (player && i === 13) {}
   else {
     player = Number(!player);
   }
+}
+
+function is_game_end() {
+/*
+arguments are nothing.
+return flag (Number).
+*/
+  /* pattern 1 */
+  if (board[6] >24 ) {return 0}
+  else if (board[13] > 24) {return 1}
+  /* pattern 2 */
+  var sum0 = 0;
+  var sum1 = 0;
+  position_map.forEach(
+    function (key, value) {
+      sum0 += board[key];
+      sum1 += board[value]
+    }
+  );
+  if (!sum0) {return 0}
+  else if (!sum1) {return 1}
+  /* pattern 3 (game is not end.) */
+  else {return -1}
 }
 
 function html_updater(flag) {
